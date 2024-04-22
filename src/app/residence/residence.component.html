@@ -1,0 +1,43 @@
+<!--<p>residence works!</p>
+
+{{s}}
+
+<button [disabled]="prop"> Test me !!</button>
+<br>
+<button class="btn btn-dark" (click)="add()"> Test event binding !!</button>
+<br>
+
+<input [(ngModel)]="s">-->
+
+<table>
+  <tr>
+    <td>Id</td>
+    <td>name</td>
+    <td>Address</td>
+    <td>Image</td>
+    <td>Appartement</td>
+  </tr>
+  <tr *ngFor="let e of listResidences">
+    <td>{{e.id}}</td>
+    <td>{{e.name}}</td>
+    <td>{{e.address}}</td>
+    <td><img [src]="e.image" width="100px" height="100px"></td>
+    <td>
+      <div *ngFor="let a of listApartments">
+        <ul *ngIf="a.residence.id==e.id">
+          <li>{{a.numAppart}}</li>
+        </ul>
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+<input [(ngModel)]="surface">
+<div *ngFor="let a of listApartments">
+  <ul *ngIf="a.surface>=surface">
+    <li>
+      num: {{a.numAppart}} / description :{{a.description}}
+    </li>
+  </ul>
+</div>
